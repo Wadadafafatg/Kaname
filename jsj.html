@@ -3,89 +3,184 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تسجيل الدخول</title>
+<title>Manga Reader</title>
 <style>
 body {
-  background-color: #333;
-  font-family: Arial, sans-serif;
-  color: #fff;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    background: #111; /* Dark background */
+    touch-action: pan-y; /* Allow vertical touch scrolling only */
+}
+
+.header {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+}
+
+.navbar {
+    background-color: #444;
+    overflow: hidden;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #555;
 }
 
 .container {
-  max-width: 400px;
-  margin: 100px auto;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+    max-width: 1200px; /* Set maximum width for the container */
+    padding: 0 20px; /* Add padding to the sides */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the items horizontally */
+    background: linear-gradient(to bottom, #111, #000); /* Dark background gradient */
+    overflow: hidden; /* Hide horizontal overflow */
 }
 
-h1 {
-  text-align: center;
+.row {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0; /* Add margin between rows */
+    width: 100%; /* Full width for rows */
+    overflow-x: scroll; /* Allow horizontal scrolling */
 }
 
-.form-group {
-  margin-bottom: 20px;
+.manga {
+    width: 200px; /* Adjust the width as needed */
+    height: 300px; /* Adjust the height as needed */
+    margin: 10px; /* Add margin between items */
+    overflow: hidden;
+    position: relative; /* Set position to relative for absolute positioning */
+    cursor: pointer; /* Change cursor on hover */
+    transition: transform 0.3s ease; /* Smooth transition on transform */
 }
 
-label {
-  display: block;
-  margin-bottom: 5px;
+.manga img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
 
-input[type="text"],
-input[type="password"] {
-  width: 100%;
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+.manga-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
-button {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.manga:hover {
+    transform: translateX(10px); /* Move right on hover */
 }
 
-.red-button {
-  background-color: #e74c3c;
-  color: #fff;
+.manga:active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); /* Red to black gradient */
+    border-radius: 10px;
+    z-index: 1; /* Ensure it's above the image */
 }
 
-.blue-button {
-  background-color: #3498db;
-  color: #fff;
+.search-menu {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    background-color: #444;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for a stylish look */
 }
 
-.black-button {
-  background-color: #333;
-  color: #fff;
+.search-menu a {
+    display: block;
+    color: #fff;
+    padding: 5px 0;
+    text-decoration: none;
 }
 
-button:hover {
-  opacity: 0.8;
+.search-menu a:hover {
+    background-color: #555;
 }
+
+.search-btn {
+    background-color: #f00;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-btn:hover {
+    background-color: #d00;
+}
+
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>تسجيل الدخول</h1>
-  <form>
-    <div class="form-group">
-      <label for="username">اسم المستخدم:</label>
-      <input type="text" id="username" name="username" required>
-    </div>
-    <div class="form-group">
-      <label for="password">كلمة المرور:</label>
-      <input type="password" id="password" name="password" required>
-    </div>
-    <button class="red-button" type="submit">أحمر</button>
-    <button class="blue-button" type="submit">أزرق</button>
-    <button class="black-button" type="submit">أسود</button>
-  </form>
+
+<div class="header">
+    <h1>Manga Reader</h1>
 </div>
-</body>
-</html>
+
+<div class="navbar">
+    <a href="#">Home</a>
+    <a href="#">Genres</a>
+    <a href="#">About</a>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="manga">
+            <img src="manga1.jpg" alt="Manga 1">
+            <div class="manga-title">Manga Title 1</div>
+        </div>
+        <div class="manga">
+            <img src="manga2.jpg" alt="Manga 2">
+            <div class="manga-title">Manga Title 2</div>
+        </div>
+        <div class="manga">
+            <img src="manga3.jpg" alt="Manga 3">
+            <div class="manga-title">Manga Title 3</div>
+        </div>
+        <!-- Add more manga entries here -->
+    </div>
+    <div class="row">
+        <div class="manga">
+            <img src="manga4.jpg" alt="Manga 4">
+            <div class="manga-title">Manga Title 4</div>
+        </div>
+        <div class="manga">
+            <img src="manga5.jpg" alt="Manga 5">
+            <div class="manga-title">Manga Title 5</div>
+        </div>
+        <div class="manga">
+            <img src="manga6.jpg" alt="Manga 6">
+            <div class="manga-title">Manga Title 6</div>
+        </div>
+        <!-- Add more manga entries here -->
+    </
