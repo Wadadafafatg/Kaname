@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تسجيل الدخول</title>
+<style>
+body {
+  background-color: #333;
+  font-family: Arial, sans-serif;
+  color: #fff;
+}
+
+.container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.red-button {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.blue-button {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.black-button {
+  background-color: #333;
+  color: #fff;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>تسجيل الدخول</h1>
+  <form>
+    <div class="form-group">
+      <label for="username">اسم المستخدم:</label>
+      <input type="text" id="username" name="username" required>
+    </div>
+    <div class="form-group">
+      <label for="password">كلمة المرور:</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <button class="red-button" type="submit">أحمر</button>
+    <button class="blue-button" type="submit">أزرق</button>
+    <button class="black-button" type="submit">أسود</button>
+  </form>
+</div>
+</body>
+</html>
